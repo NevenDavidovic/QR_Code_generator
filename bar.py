@@ -1,5 +1,7 @@
 import pyqrcode
 import png
+import time
+
 choice=True
 while choice:
     print("1 Payment Data")
@@ -22,7 +24,7 @@ while choice:
         qr_code = pyqrcode.create(payment_data, error='H')
 
         # Save the QR code as a PNG image file
-        filename = "nfc_payment.png"
+        filename = f"nfc_payment_{time.time()}.png"
         qr_code.png(filename, scale=10, module_color=[0, 0, 0, 255], background=[0xff, 0xff, 0xff, 0xff])
         
     
@@ -34,7 +36,7 @@ while choice:
         qr_code = pyqrcode.create(text, error='H')
 
         # Save the QR code as a PNG image file
-        filename = "qr_code.png"
+        filename = f"nfc_payment_{time.time()}.png"
         qr_code.png(filename, scale=10, module_color=[0, 0, 0, 255], background=[0xff, 0xff, 0xff, 0xff])
         
     elif choice=='0':
