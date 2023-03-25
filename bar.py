@@ -11,6 +11,7 @@ while choice:
     choice=input("Odaberi broj: ")  
     
     if choice=='1':
+        nameOfBarcode=input ("Enter the name of the barcode .png file: ")
         # Ask for the person's name and last name, IBAN, and payment amount
         name = input("Enter your name: ")
         last_name = input("Enter your last name: ")
@@ -24,19 +25,20 @@ while choice:
         qr_code = pyqrcode.create(payment_data, error='H')
 
         # Save the QR code as a PNG image file
-        filename = f"nfc_payment_{time.time()}.png"
+        filename = f"{nameOfBarcode}.png"
         qr_code.png(filename, scale=10, module_color=[0, 0, 0, 255], background=[0xff, 0xff, 0xff, 0xff])
         
     
     elif choice=='2':
         # Ask for the text to be encoded in QR code
+        nameOfBarcode=input("Enter the name of the barcode .png file: ")
         text = input("Enter the text to be encoded in QR code: ")
 
         # Generate the QR code
         qr_code = pyqrcode.create(text, error='H')
 
         # Save the QR code as a PNG image file
-        filename = f"nfc_payment_{time.time()}.png"
+        filename = f"{nameOfBarcode}.png"
         qr_code.png(filename, scale=10, module_color=[0, 0, 0, 255], background=[0xff, 0xff, 0xff, 0xff])
         
     elif choice=='0':
